@@ -24,13 +24,13 @@ const db = knex({
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => {res.send('success');});
-app.post('/signin', (req, res) => {signin.handleSignin(req, res, db, bcrypt)});
-app.post('/register', (req,res) => {register.handleRegister(req, res, db, bcrypt)});
-app.get('/profile/:id', (req, res) => {profile.handleProfile(req, res, db)});
-app.put('/image', (req, res) => {image.handleImage(req, res, db)});
+app.get('/', (req, res) => {res.send('success')});
+app.post('/signin', signin.handleSignin(db, bcrypt));
+app.post('/register', register.handleRegister(db, bcrypt));
+app.get('/profile/:id', profile.handleProfile(db));
+app.put('/image', image.handleImage(db));
 
-app.listen(port, () => {console.log(`app is running on port ${port}`);});
+app.listen(port, () => {console.log(`app is running on port ${port}`)});
 
 /* 
 / --> res = this is working
