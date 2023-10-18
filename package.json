@@ -9,7 +9,8 @@
   "author": "Richard Kerr",
   "license": "ISC",
   "dependencies": {
-    "bcrypt-nodejs": "^0.0.3",
+    "bcryptjs": "^2.4.3",
+    "clarifai-nodejs-grpc": "^9.9.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "knex": "^3.0.1",

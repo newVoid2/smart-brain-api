@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const bcrypt = require('bcrypt-nodejs')
-//const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 const cors = require('cors');
 const knex = require('knex');
 
@@ -29,13 +28,6 @@ app.post('/signin', signin.handleSignin(db, bcrypt));
 app.post('/register', register.handleRegister(db, bcrypt));
 app.get('/profile/:id', profile.handleProfile(db));
 app.put('/image', image.handleImage(db));
+app.post('/imageurl', image.handleApiCall());
 
 app.listen(port, () => {console.log(`app is running on port ${port}`)});
-
-/* 
-/ --> res = this is working
-/ signin --> POST = success/fail
-/register --> POST = user
-/profile/:userId --> GET = user
-/image --> PUT --> user
-*/
